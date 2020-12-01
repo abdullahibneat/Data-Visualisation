@@ -1,8 +1,5 @@
 import matplotlib.pyplot as plt
-from data import summary_data
-
-plot_titles = ["Average age of visitors", "Total visitors in 2019", "Maximum distance (in miles) visitors are prepared to travel", "Average time spent by visitors", "Percentage of female visitors", "Average spend of visitors"]
-plot_y_labels = ["Age", "Number of visitors", "Distance (miles)", "Time (minutes)", "Female visitors (%)", "Spend (£)"]
+from data import summary_data, plot_titles, plot_y_labels
 
 for i, col in enumerate(summary_data):
     # Retrieve data

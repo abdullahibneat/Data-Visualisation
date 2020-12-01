@@ -27,3 +27,7 @@ summary_data["distance"] = distance_data.values
 summary_data["duration"] = duration_data.values
 summary_data["female"] = gender_data.values
 summary_data["spend"] = spend_data.values
+
+# Custom labels for each column in dataframe
+plot_titles = ["Average age of visitors", "Total visitors in 2019", "Maximum distance (in miles) visitors are prepared to travel", "Average time spent by visitors", "Percentage of female visitors", "Average spend of visitors"]
+plot_y_labels = ["Age", "Number of visitors", "Distance (miles)", "Time (minutes)", "Female visitors (%)", "Spend (£)"]
