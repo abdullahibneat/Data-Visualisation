@@ -27,5 +27,3 @@ summary_data["distance"] = distance_data.values
 summary_data["duration"] = duration_data.values
 summary_data["female"] = gender_data.values
 summary_data["spend"] = spend_data.values
-
-print(summary_data.head())
