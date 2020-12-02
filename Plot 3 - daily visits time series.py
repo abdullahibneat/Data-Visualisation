@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt
 from data import summary_data, visitor_data
 
-# From previous plot:
+# The following thresholds were determined from the previous plot:
+#
 # total visitors: HIGH=150k+, MEDIUM=50k+, LOW=<50k
+#
 # Because the "low" graph produces too many lines,
 # added a very low threshold for visitors less than 18k
 categories = ["High", "Medium", "Low", "Very Low"]
@@ -29,6 +31,12 @@ for (name, value) in data.iteritems():
     categories_selected[category].append(name)
 
 if __name__ == "__main__":
+    # Use subplot to display 2x2 gird of plots
+    fig, axes = plt.subplots(nrows=2, ncols=2)
+
+    curr_row = 0
+    curr_col = 0
+    
     # Show segmented data
     for i, selected in enumerate(categories_selected):
         # Get all values from the selected column
@@ -36,12 +44,15 @@ if __name__ == "__main__":
         data_selected = visitor_data[selected]
 
         # Display data as bar chart
-        plot = data_selected.plot()
+        plot = data_selected.plot(ax=axes[curr_row, curr_col])
 
         # Set title, y-label
         plot.set_title(categories[i] + " - visitors over the year 2019")
         plot.set_ylabel("Visitors")
         plot.set_ylim(bottom=0)
 
-        # Show plots one at a time
-        plt.show()
+        curr_col = (curr_col + 1) % 2
+        if(curr_col == 0):
+            curr_row += 1
+
+plt.show()
