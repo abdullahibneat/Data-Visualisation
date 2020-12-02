@@ -40,6 +40,7 @@ for i, selected in enumerate(categories_selected):
     # Set title, y-label
     plot.set_title(categories[i] + " - visitors over the year 2019")
     plot.set_ylabel("Visitors")
+    plot.set_ylim(bottom=0)
 
     # Show plots one at a time
     plt.show()

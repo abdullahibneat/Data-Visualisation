@@ -76,6 +76,7 @@ for i, col in enumerate(summary_data):
         # Set title, y-label
         plot.set_title(categories[j] + " - " + plot_titles[i])
         plot.set_ylabel(plot_y_labels[i])
+        plot.set_ylim(bottom=0)
 
         # Show plots one at a time
         plt.show()
