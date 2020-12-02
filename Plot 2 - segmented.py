@@ -66,17 +66,21 @@ for i, col in enumerate(summary_data):
         categories_selected[category].append(name)
 
     # Show segmented data
+    curr_col = 0
+    fig, axes = plt.subplots(ncols=3)
+
     for j, selected in enumerate(categories_selected):
         # Get all values from the selected column
         data_selected = data[data.index.isin(selected)]
 
-        # Display data as bar chart
-        plot = data_selected.plot.bar()
+        # Display data as bar chart (sub-plot)
+        plot = data_selected.plot.bar(ax=axes[curr_col])
+        curr_col += 1
 
         # Set title, y-label
         plot.set_title(categories[j] + " - " + plot_titles[i])
         plot.set_ylabel(plot_y_labels[i])
         plot.set_ylim(bottom=0)
 
-        # Show plots one at a time
-        plt.show()
+    # Show segmented plots one at a time
+    plt.show()
