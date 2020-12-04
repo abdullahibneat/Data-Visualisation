@@ -20,9 +20,10 @@ plt.plot(data_selected, linewidth=0.5)
 plt.gca().set_prop_cycle(None)
 plt.plot(averaged_data, linewidth=2)
 
-# Set title, y-label
+# Set title, y-label, show figure
 plt.title("Very low - visitors over the year 2019 with 7-day rolling average")
 plt.ylabel("Visitors")
 plt.ylim(bottom=0)
+plt.legend(data_selected)
 
 plt.show()
