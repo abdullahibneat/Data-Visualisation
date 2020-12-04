@@ -28,5 +28,11 @@ trend_x = [min(x), max(x)]
 trend_y = [trend(min(x)), trend(max(x))]
 plt.plot(trend_x, trend_y, color="r", linestyle="--")
 
+# Set title, axis labels
+plt.title("Age vs Spend")
+plt.xlabel("Age")
+plt.ylabel("Spend (£)")
+plt.ylim(bottom=0)
+
 # Show plot
 plt.show()
