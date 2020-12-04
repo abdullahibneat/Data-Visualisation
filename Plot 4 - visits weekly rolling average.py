@@ -3,44 +3,26 @@ from data import visitor_data
 
 # Import segmented visitor venues from previous plot
 plot3 = __import__("Plot 3 - daily visits time series")
-categories = plot3.categories
-categories_selected = plot3.categories_selected
+very_low_venues = plot3.categories_selected[-1]
 
 # Define rolling average period (in days)
 period = 7
 
-# Use subplot to display 2x2 gird of plots
-fig, axes = plt.subplots(nrows=2, ncols=2)
+data_selected = visitor_data[very_low_venues]
 
-curr_row = 0
-curr_col = 0
+# Calculate rolling average
+averaged_data = data_selected.rolling(window=period).mean()
 
-for i, selected in enumerate(categories_selected):
-    # Get all values from the selected column
-    # Use daily visitor data to create time series plot
-    data_selected = visitor_data[selected]
+# Display original data
+plt.plot(data_selected, linewidth=0.5)
 
-    # Calculate rolling average
-    averaged_data = data_selected.rolling(window=period).mean()
+# Overlay averaged data
+plt.gca().set_prop_cycle(None)
+plt.plot(averaged_data, linewidth=2)
 
-    # Display original data
-    plot = axes[curr_row, curr_col]
-    plot.plot(data_selected, linewidth=0.5)
-
-    # Overlay averaged data
-    plot.set_prop_cycle(None)
-    plot.plot(averaged_data, linewidth=2)
-
-    # Set title, y-label
-    plot.set_title(categories[i] + " - visitors over the year 2019 with 7-day rolling average")
-    plot.set_ylabel("Visitors")
-    plot.set_ylim(bottom=0)
-
-    # Show legend
-    plot.legend(data_selected)
-
-    curr_col = (curr_col + 1) % 2
-    if(curr_col == 0):
-        curr_row += 1
+# Set title, y-label
+plt.title("Very low - visitors over the year 2019 with 7-day rolling average")
+plt.ylabel("Visitors")
+plt.ylim(bottom=0)
 
 plt.show()
