@@ -2,6 +2,12 @@
 
 The `data.py` file contains the data from the `/data/*.csv` files within a `summary_data` dataframe. Run each python file to see individual visualizations.
 
+## Scenario
+
+ChrisCo is a fictional, but nonetheless very successful, company managing a range of venues across the UK. ChrisCo collects a huge amount of data about individual customers visiting its venues using its loyalty card scheme but this customer data has been aggregated/averaged to give information about the company’s 40 venues, each identified by a unique 3 letter code (e.g. ABC, XYZ, etc).
+
+You should compile the data into two dataframes: one containing daily visitor data (one row for each date); the other containing summary data (one row for each venue), compiled from all of the .csv files, including the daily visitors. Your task is to explore this data visually and present conclusions about any characteristics you discover (e.g. correlations), together with a suggestion about how the data might be segmented.
+
 ## Visualization 1 – all data as bar chart
 <p align="center">
     <img alt="Figure 1: Overview of dataset" src="https://i.imgur.com/nj2yQ8O.png">
